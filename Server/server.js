@@ -14,16 +14,17 @@ app.get("/", (req, res) => {
 });
 
 app.get("/weather", (req, res) => {
-  const myLat = req.query.lat;
-  const myLon = req.query.lon;
+  const myCity = req.query;
 
   const weatherFilter = data.filter((city) => {
-    console.log(city.lat);
-    return myLat === city.lat && myLon === city.lon;
+    return myCity.city === city.city_name;
   });
 
-  console.log(weatherFilter);
-  // res.json(weatherFilter.data[0].weather.description);
+  const wrangledData = weatherFilter[0].data;
+
+  wrangledData.map;
+
+  res.json(wrangledData);
 });
 
 // Last line of code
